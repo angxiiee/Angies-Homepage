@@ -1,0 +1,173 @@
+body {
+    margin: 0;
+    background-color: #ffc8da;
+}
+h1 {
+    font-family: "chelsea-market-script", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.border-container {
+    max-width: 600px;
+    margin: 40px auto;
+    position: relative;
+    text-align: center;
+}
+
+.border-title {
+    display: inline-block;
+    position: relative;
+    top: 35px;
+    margin: 0 auto;
+    padding: 0 10px;
+    font-family: "chelsea-market-script", sans-serif;
+    font-size: 5em;
+    color:#ff0088;
+    background: none;
+    text-align: center;
+}
+
+.border {
+    max-width: 600px;
+    height: 1500px;
+    margin: 15 auto;
+    padding: 30px;
+    background-color:aliceblue;
+    border-radius: 24px;
+    background: linear-gradient (to bottom, #ffe6c8, #ffd1a1);
+    background-image:
+        linear-gradient(white,white),
+        linear-gradient(135deg, #ffc8dd, #f2b6cf, #cdb4db);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    box-shadow: 0 8px 15px rgba (0,0,0,0.15);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.intro-text {
+    font-family: "adriane", serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.2em;
+    color:black;
+    text-align: left;
+    line-height: 2;
+
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 25px;
+    color: black;
+    background-color: #ff0088;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    font-family: "chelsea-market-script", sans-serif;
+    font-size: 1.5em;
+}
+
+.button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 15px rgba (0,0,0,0.3);
+}
+
+.closet {
+    max-width: 800px;
+    margin: 40px auto 60px auto;
+    padding: 30px;
+    background-color:burlywood;
+    border: 8px solid #b5651d;
+    border-radius: 0px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    box-sizing: border-box;
+    outline: 3px solid #b5651d;
+    outline-offset: -14px;
+    
+    background-image:
+        linear-gradient(white, white),
+        repeating-linear-gradient(
+            90deg,
+            rgba(0,0,0,0.03),
+            rgba(0,0,0,0.03) 2px,
+            transparent 2px
+            transparent 40px
+        );
+    background-blend-mode: overlay;
+}
+
+.shelf {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 20px;
+    background-color: burlywood;
+    border-radius: 8px;
+    margin-top: 20px;
+
+    background: linear-gradient(to bottom, #f5ddea, #eec3d9);
+    border-radius: 12px;
+    box-shadow: inset 0 -4px 0 rgba (0,0,0,0.1);
+}
+
+.item {
+    width: 140px;
+    height: 140px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.item img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 8px;
+}
+
+.item:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 15px rgba (0,0,0,0.3);
+}
+
+.heart-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.heart-list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px;
+    font-family: "adriane", serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.2em;
+    color:black;
+    text-align: left;
+    line-height: 2;
+}
+
+.heart-list li::before {
+    content:"♡";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #ff6fae;
+    font-size: 1.2rem;
+}
+
+.list-title {
+    font-family: "chelsea-market-script", sans-serif;
+    font-size: 1.5em;   
+}
