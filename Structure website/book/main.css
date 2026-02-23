@@ -1,0 +1,84 @@
+* {
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    height:auto;
+    display:flex;
+    justify-content:center;
+    align-content:center;
+    background-image: url(images/pink-paper-texture-background-design-vector\ \(1\).jpg);
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+.container{
+    display:flex;
+    gap:10px;
+    justify-content:space-evenly;
+    align-items:center;
+    width:100%;
+    max-width:800px;
+}
+
+.top{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+}
+
+.top img{
+    width:100%;
+    height:auto;
+}
+
+.bottom{
+    display:flex;
+    gap:10px;
+    justify-content:space-evenly;
+    align-items:center;
+}
+
+.column{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+    align-content:flex-start;
+    justify-content:space-evenly;
+}
+
+.item{
+    display:flex;
+    cursor:pointer;
+    transition:transform 0.2s ease, box-shadow 0.2s ease;
+    justify-content:space-around;
+}
+
+.item:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 15px rgba (0,0,0,0.3);
+}
+
+.item1 img{
+    width:auto;
+    height:390px;
+}
+
+.item2 img{
+    width:auto;
+    height:600px;
+}
+
+.item3 img{
+    width:250px;
+    height:auto;
+}
+
+.item4 img{
+    width:350px;
+    height:auto;
+}

@@ -1,0 +1,71 @@
+*{
+    box-sizing:border-box
+}
+
+body{
+    background-image:url(camera-images/pink-paper-texture-background-design-vector\ \(1\).jpg);
+}
+
+.top{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+}
+
+.top img{
+    width:100%;
+    max-width:800px;
+    height:auto;
+}
+
+.slideshow-container{
+    max-width:1000px;
+    height:500px;
+    position:relative;
+    margin:auto;
+}
+
+.mySlides{
+    display:none;
+}
+
+.prev, .next{
+    cursor:pointer;
+    position:absolute;
+    top:50%;
+    width:auto;
+    margin-top:-22px;
+    padding:16px;
+    transition:0.6 ease;
+    border-radius:0 3px 3px 0;
+    user-select:none;
+}
+
+.next{
+    right:0;
+    border-radius:3px 0 0 3px;
+}
+
+.prev:hover, .next:hover{
+    background-color:deeppink;
+}
+
+.fade{
+    animation-name:fade;
+    animation-duration:1.5s;
+}
+
+@keyframes fade{
+    from{opacity:.4}
+    to{opacity:1}
+}
+
+.mySlides img{
+    width:50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
