@@ -1,0 +1,80 @@
+* {
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+}
+
+.square{
+    background-color:hotpink;
+    width:200px;
+    height:200px;
+    /* animation-name:test;
+    animation-duration:4s;
+    animation-delay:2s;
+    animation-iteration-count:infinite;
+    animation-timing-function:ease-in-out;
+    animation-direction:alternate;
+    animation-fill-mode:both; */
+    animation:test 4s 2s infinite ease-in-out alternate both;
+    /* first time value is animation-durationg, second time value is animation-delay */
+
+    display:none;
+}
+
+@keyframes test{
+
+16%{
+    background-color:rgb(255, 0, 38);
+}
+32%{
+    background-color:coral;
+}
+48%{
+    background-color:rgb(255, 234, 0);
+}
+64%{
+    background-color:forestgreen;
+}
+80%{
+    background-color:blue;
+}
+96%{
+    background-color:blueviolet;
+}
+
+}
+
+.container{
+    display:flex;
+    justify-content:space-evenly;
+    align-items:center;
+    background-color:lightpink;
+    height:100vh;
+}
+
+.circle{
+    background-color:hotpink;
+    width:100px;
+    height:100px;
+    border-radius:100%;
+    animation:pulse 2s alternate ease-in-out infinite;
+}
+
+@keyframes pulse{
+    0%{
+        background-color:hotpink;
+        scale:1;
+    }
+    100%{
+        background-color:khaki;
+        scale:1.4;
+    }
+}
+
+.box{
+    background-color:hotpink;
+    width:100px;
+    height:100px;
+}
