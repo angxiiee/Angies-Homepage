@@ -1,0 +1,100 @@
+* {
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:rgb(241, 241, 216);
+}
+
+.yellow{
+    color:rgb(239, 239, 47);
+}
+
+.blue{
+    color:blue;
+}
+
+.green{
+    color:green;
+}
+
+.red{
+    color:red;
+}
+.title{
+    font-family: "p22-toybox-blocks", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size:80px;
+    position:relative;
+    text-align:center;
+    cursor:default;
+    /* text-shadow: 2px 2px 4px #000000; */
+}
+
+.buttons{
+    height:500px;
+    position:absolute;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-evenly;
+    gap:10px;
+    top:140px;
+    left:20px;
+}
+
+.button{
+    display: flex;                
+    justify-content:center;      
+    align-items:center;          
+    width:100px;
+    height:50px;
+    font-size:18px;
+    border-radius:8px;           
+    cursor:pointer;  
+    display:flex;
+    flex-direction:column;
+    text-align:center;
+    appearance: none;    
+}
+
+.reset-btn{
+    position:absolute;
+    right:20px;
+    font-size:18px;
+    border-radius:8px;
+    cursor:pointer;
+    width:100px;
+    height:50px;
+    bottom:40px;
+}
+
+.reset-btn:hover{
+    transform:scale(1.05);
+}
+
+.button:hover{
+    transform:scale(1.05);
+}
+
+.container{
+    background:white;
+    width:1000px;
+    height:500px;
+    position:absolute;
+    top:140px;
+    margin-left:auto;
+    margin-right:auto;
+    left:0;
+    right:0;
+    border:5px solid black;
+}
+
+.block{
+    width:40px;
+    height:40px;
+    position:absolute;
+    cursor:grab;
+}
+
