@@ -1,0 +1,85 @@
+* {
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:rgb(255, 147, 208);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.box{
+    width:150px;
+    height:150px;
+    position:relative;
+}
+
+.button-container{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    width:1120px;
+    margin:0 auto;
+}
+
+.button{
+    font-family: "liebelotte", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    font-size: 30px;
+    background-color:rgb(255, 100, 203);
+}
+
+.button:hover{
+    transform:scale(1.05);
+    cursor:pointer;
+}
+
+.picture{
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity:0;
+    transition: opacity 0.3s;
+}
+
+.picture.show{
+    opacity:1;
+}
+
+.birthday-msg{
+    font-family: "liebelotte", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    position:absolute;
+    top:-35px;
+    font-size:70px;
+}
+
+.music-btn{
+    font-family: "liebelotte", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size:30px;
+    position:absolute;
+    bottom:10px;
+    width:200px;
+    height:60px;
+}
+
+.music-btn:hover{
+    transform:scale(1.05);
+    cursor:pointer;
+}

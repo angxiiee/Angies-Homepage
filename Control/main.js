@@ -22,3 +22,9 @@ $(".button").click(function(){
 $(".reset-btn").click(function() {
     $(".block").remove();
 });
+
+$(".reveal-btn").click(
+    function(){
+        $(".alexa").addClass("show");
+        $(".reveal-btn").hide();
+});
