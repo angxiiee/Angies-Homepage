@@ -1,0 +1,172 @@
+* {
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+}
+
+.cursor{
+    position:absolute;
+    width:20px;
+    height:20px;
+    background-color:#e36887;
+    border-radius:50%;
+    pointer-events:none;
+    transform:translate(-50%,-50%);
+    z-index:9999;
+}
+
+.cursor-trail{
+    position:absolute;
+    border-radius:50%;
+    pointer-events:none;
+    transform:translate(-50%,-50%);
+}
+
+.container{
+    position:relative;
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+}
+
+.item{
+    position:absolute;
+}
+
+.enter-btn{
+    position:absolute;
+    left:50%;
+    bottom:20px;
+}
+
+.item1{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:auto;
+    height:500px;
+    /* z-index:-100; */
+}
+
+.item2{
+    position:absolute;
+    width:auto;
+    height:300px;
+    bottom:-20px;
+    right:270px;
+    transform:rotate(-10deg);
+    z-index:51;
+}
+
+.item3{
+    position:absolute;
+    width:auto;
+    height:340px;
+    right:200px;
+    top:140px;
+    transform:rotate(20deg);
+}
+
+.item4{
+    position:absolute;
+    width:auto;
+    height:250px;
+}
+
+.item5{
+    position:absolute;
+    width:auto;
+    height:425px;
+    transform:rotate(5deg);
+    left:-10px;
+    top:50px;
+    z-index:51;
+}
+
+.item6{
+    position:absolute;
+    width:auto;
+    height:290px;
+    bottom:10px;
+    left:120px;
+    transform:rotate(-5deg);
+}
+
+.item7{
+    position:absolute;
+    width:auto;
+    height:700px;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+
+.item8{
+    position:absolute;
+    width:auto;
+    height:600px;
+    z-index:51;
+    right:-40px;
+    top:-35px;
+    transform:rotate(-15deg);
+}
+
+.item9{
+    position:absolute;
+    width:auto;
+    height:500px;
+    z-index:51;
+    transform:rotate(-10deg);
+    left:80px;
+    top:0px;
+}
+
+.title2{
+    position:absolute;
+    font-family: "memoriampro", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color:#f3d98f;
+    font-size:140px;
+    top:-70px;
+    left:50%;
+    transform:translate(-50%);
+    z-index:51;
+}
+
+.title{
+    position:absolute;
+    font-size:60px;
+    left:300px;
+    top:-10px;
+    color:#e36887;
+    font-family: "chelsea-market-script", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    z-index:52;
+}
+
+.title3{
+    position:absolute;
+    font-size:80px;
+    color:#e36887;
+    right:210px;
+    bottom:170px;
+    font-family: "chelsea-market-script", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    z-index:53;
+}
+
+#myVideo {
+  position: absolute;
+  object-fit:cover;
+  object-position:center 60%;
+  width:100%;
+  height:100%;
+  z-index:50;
+}
+
