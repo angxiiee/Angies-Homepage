@@ -1,6 +1,7 @@
 console.log(":)");
 
 const cursor=document.querySelector(".cursor");
+console.log(cursor);
 const colors=[
     "#f3d98f",
     "#e36887",
