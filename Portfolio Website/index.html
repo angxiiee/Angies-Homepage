@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title></title>
+        <title>Angie's Portfolio<3</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="main.css">
         <link rel="stylesheet" href="https://use.typekit.net/jjy0fpm.css">
@@ -9,33 +9,67 @@
     </head>
         <body>
 
-            <div class="cursor"></div>
+       
 
-            <video autoplay muted loop id="myVideo">
-                <source src="images/IMG_5468.mov" type="video/mp4">
-            </video>
+        <div class="sidebar">
 
+            <h1 class="logo" data-page="home">Angie</h1>
 
-            <div class="container">
-                <!-- <img src="images/titlebackground.img.png" class="item item1"> -->
-                <img src="images/stickynote.img.png" class="item item2">
-                <img src="images/driverliscense.img.png" class="item item3">
-                <img src="images/locket.img.png" class="item item4">
-                <img src="images/photostrip.img.png" class="item item5">
-                <!-- <img src="images/cameracollage.img.png" class="item item6"> -->
-                <!-- <img src="images/titlebackground.img.png" class="item item7"> -->
-                <img src="images/polaroidcollage.img.png" class="item item8">
-                <img src="images/bikinipolaroid.img.png" class="item item9">
+           <div class="menu">
+                <button data-page="about">About me</button>
+                <button data-page="work">My work</button>
+                <button data-page="resume">Resume</button>
+           </div>
 
-                <p class="title">Angie's</p>
-                <p class="title2">Portfolio</p>
-                <p class="title3">Website</p>
+        </div>
 
-                <button class="enter-btn">enter</button>
+        <div class="main-content">
+
+            <div class="page active" id="home">
+
+            <div class="background-img">
+                <img src="images/100_0555.JPEG" class="background">
+            </div>
 
             </div>
 
-            <script src="main.js"></script>
+            <div class="page" id="about">
+
+                <h2>About me!</h2>
+                <p>I'm going to talk about me here :)</p>
+
+                <div class="work-grid">
+                    <img src="image.png" class="thumbnail" data-project="project1">
+                    <img src="image.png" class="thumbnail" data-project="project2">
+                    <img src="image.png" class="thumbnail" data-project="project3">
+                </div>
+
+                <div class="work-detail">
+                    <div class="project" id="project1">
+                        <p>filler text</p>
+                    </div>
+                    <div class="project" id="project2">
+                        <p>filler text</p>
+                    </div>
+                    <div class="project" id="project3">
+                        <p>filler text</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="page" id="work">
+                <h2>My work!</h2>
+            </div>
+
+            <div class="page" id="resume">
+                <h2>Resume!</h2>
+            </div>
+
+        </div>
+
+        <div class="cursor"></div>
+        <script src="main.js"></script>
 
         </body>
 </html>
