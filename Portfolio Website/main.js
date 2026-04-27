@@ -30,7 +30,7 @@ function createSparkle(x, y) {
   sparkle.classList.add("cursor-trail");
 
   const color = colors[Math.floor(Math.random() * colors.length)];
-  const size = Math.random() * 15 + 5;
+  const size = Math.random() * 8 + 3;
   const angle = Math.random() * Math.PI * 2;
   const distance = Math.random() * 50 + 10;
 
