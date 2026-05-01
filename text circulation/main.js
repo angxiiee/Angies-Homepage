@@ -6,18 +6,18 @@ let currentIndex = 0;
 let startX = 0;
 let currentTranslate = 0;
 let prevTranslate = 0;
+
 let isDragging = false;
 let isZooming = false;
 
 
-
 slides.forEach((slide, index) => {
 
-  slide.addEventListener('touchstart', (event) => {
+  slide.addEventListener('touchstart', (e) => {
     currentIndex = index;
 
-    // 👇 detect pinch zoom
-    if (event.touches.length === 2) {
+
+    if (e.touches.length === 2) {
       isZooming = true;
       isDragging = false;
       return;
@@ -26,15 +26,18 @@ slides.forEach((slide, index) => {
     isZooming = false;
     isDragging = true;
 
-    startX = event.touches[0].clientX;
+    startX = e.touches[0].clientX;
   });
 
-  slide.addEventListener('touchmove', (event) => {
-    if (isZooming) return;
-    if (!isDragging || event.touches.length !== 1) return;
+  slide.addEventListener('touchmove', (e) => {
 
-    const currentPosition = event.touches[0].clientX;
-    const diff = currentPosition - startX;
+
+    if (isZooming) return;
+
+    if (!isDragging || e.touches.length !== 1) return;
+
+    const currentX = e.touches[0].clientX;
+    const diff = currentX - startX;
 
     currentTranslate = prevTranslate + diff;
     track.style.transform = `translateX(${currentTranslate}px)`;
@@ -42,7 +45,11 @@ slides.forEach((slide, index) => {
 
   slide.addEventListener('touchend', () => {
     isDragging = false;
-    isZooming = false;
+
+
+    setTimeout(() => {
+      isZooming = false;
+    }, 150);
 
     const movedBy = currentTranslate - prevTranslate;
 
@@ -60,7 +67,6 @@ slides.forEach((slide, index) => {
 });
 
 
-
 function setPositionByIndex() {
   const slideWidth = window.innerWidth;
 
@@ -71,7 +77,6 @@ function setPositionByIndex() {
 
   updateCounter();
 }
-
 
 
 function updateCounter() {
