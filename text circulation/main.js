@@ -7,50 +7,59 @@ let startX = 0;
 let currentTranslate = 0;
 let prevTranslate = 0;
 let isDragging = false;
+let isZooming = false;
+
+
 
 slides.forEach((slide, index) => {
-  slide.addEventListener('touchstart', touchStart(index));
-  slide.addEventListener('touchmove', touchMove);
-  slide.addEventListener('touchend', touchEnd);
-});
 
-function touchStart(index) {
-  return function (event) {
+  slide.addEventListener('touchstart', (event) => {
     currentIndex = index;
 
+    // 👇 detect pinch zoom
+    if (event.touches.length === 2) {
+      isZooming = true;
+      isDragging = false;
+      return;
+    }
 
-    if (event.touches.length !== 1) return;
-
+    isZooming = false;
     isDragging = true;
+
     startX = event.touches[0].clientX;
-  };
-}
+  });
 
-function touchMove(event) {
-  if (!isDragging || event.touches.length !== 1) return;
+  slide.addEventListener('touchmove', (event) => {
+    if (isZooming) return;
+    if (!isDragging || event.touches.length !== 1) return;
 
-  const currentPosition = event.touches[0].clientX;
-  const diff = currentPosition - startX;
+    const currentPosition = event.touches[0].clientX;
+    const diff = currentPosition - startX;
 
-  currentTranslate = prevTranslate + diff;
-  track.style.transform = `translateX(${currentTranslate}px)`;
-}
+    currentTranslate = prevTranslate + diff;
+    track.style.transform = `translateX(${currentTranslate}px)`;
+  });
 
-function touchEnd() {
-  isDragging = false;
+  slide.addEventListener('touchend', () => {
+    isDragging = false;
+    isZooming = false;
 
-  const movedBy = currentTranslate - prevTranslate;
+    const movedBy = currentTranslate - prevTranslate;
 
-  if (movedBy < -80 && currentIndex < slides.length - 1) {
-    currentIndex++;
-  }
+    if (movedBy < -80 && currentIndex < slides.length - 1) {
+      currentIndex++;
+    }
 
-  if (movedBy > 80 && currentIndex > 0) {
-    currentIndex--;
-  }
+    if (movedBy > 80 && currentIndex > 0) {
+      currentIndex--;
+    }
 
-  setPositionByIndex();
-}
+    setPositionByIndex();
+  });
+
+});
+
+
 
 function setPositionByIndex() {
   const slideWidth = window.innerWidth;
@@ -62,6 +71,8 @@ function setPositionByIndex() {
 
   updateCounter();
 }
+
+
 
 function updateCounter() {
   counter.textContent = `${currentIndex + 1} / ${slides.length}`;
