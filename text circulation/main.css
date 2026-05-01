@@ -1,7 +1,8 @@
 body {
   margin: 0;
   background: #000;
-  overflow: hidden;
+  overflow: hidden; /* keeps carousel locked in view */
+  font-family: sans-serif;
 }
 
 main {
@@ -9,7 +10,7 @@ main {
   background: #000;
 }
 
-/* --- CAROUSEL --- */
+/* ---------------- CAROUSEL WRAPPER ---------------- */
 .carousel {
   width: 100%;
   height: 80vh;
@@ -18,25 +19,31 @@ main {
   background: #000;
 }
 
-
+/* ---------------- TRACK ---------------- */
 .carousel-track {
   display: flex;
   height: 100%;
   transition: transform 0.3s ease;
 
+  /* IMPORTANT: do NOT block touch gestures here */
 }
 
-
+/* ---------------- IMAGES ---------------- */
 .carousel img {
   width: 100vw;
   height: 80vh;
   flex-shrink: 0;
   object-fit: contain;
-  user-select: none;
+
+  /* Prevent weird dragging */
   -webkit-user-drag: none;
-  touch-action: none;
+  user-select: none;
+
+  /* 🔥 KEY FIX: allows pinch zoom */
+  touch-action: pinch-zoom pan-x pan-y;
 }
 
+/* ---------------- COUNTER ---------------- */
 .counter {
   position: absolute;
   bottom: 12px;
@@ -46,6 +53,7 @@ main {
   background: rgba(0, 0, 0, 0.6);
   padding: 6px 10px;
   border-radius: 12px;
+
   font-size: 14px;
-  font-family: sans-serif;
+  z-index: 10;
 }

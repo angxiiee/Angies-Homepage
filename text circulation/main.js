@@ -6,34 +6,25 @@ let currentIndex = 0;
 let startX = 0;
 let currentTranslate = 0;
 let prevTranslate = 0;
-
 let isDragging = false;
-let isLocked = false; 
 
-
+/* ---------------- TOUCH ---------------- */
 
 slides.forEach((slide, index) => {
 
   slide.addEventListener('touchstart', (e) => {
     currentIndex = index;
 
-    if (e.touches.length > 1) {
-      isLocked = true;
-      isDragging = false;
-      return;
-    }
+    // 🚫 if pinch gesture, do NOTHING (let browser zoom)
+    if (e.touches.length !== 1) return;
 
-    isLocked = false;
     isDragging = true;
-
     startX = e.touches[0].clientX;
   });
 
   slide.addEventListener('touchmove', (e) => {
 
-
-    if (isLocked) return;
-
+    // 🚫 block swipe if not single finger
     if (!isDragging || e.touches.length !== 1) return;
 
     const currentX = e.touches[0].clientX;
@@ -45,7 +36,6 @@ slides.forEach((slide, index) => {
 
   slide.addEventListener('touchend', () => {
     isDragging = false;
-    isLocked = false;
 
     const movedBy = currentTranslate - prevTranslate;
 
@@ -62,6 +52,7 @@ slides.forEach((slide, index) => {
 
 });
 
+/* ---------------- POSITION ---------------- */
 
 function setPositionByIndex() {
   const slideWidth = window.innerWidth;
@@ -74,6 +65,7 @@ function setPositionByIndex() {
   updateCounter();
 }
 
+/* ---------------- COUNTER ---------------- */
 
 function updateCounter() {
   counter.textContent = `${currentIndex + 1} / ${slides.length}`;
