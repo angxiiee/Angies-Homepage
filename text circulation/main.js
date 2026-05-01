@@ -8,7 +8,8 @@ let currentTranslate = 0;
 let prevTranslate = 0;
 
 let isDragging = false;
-let isZooming = false;
+let isLocked = false; 
+
 
 
 slides.forEach((slide, index) => {
@@ -16,14 +17,13 @@ slides.forEach((slide, index) => {
   slide.addEventListener('touchstart', (e) => {
     currentIndex = index;
 
-
-    if (e.touches.length === 2) {
-      isZooming = true;
+    if (e.touches.length > 1) {
+      isLocked = true;
       isDragging = false;
       return;
     }
 
-    isZooming = false;
+    isLocked = false;
     isDragging = true;
 
     startX = e.touches[0].clientX;
@@ -32,7 +32,7 @@ slides.forEach((slide, index) => {
   slide.addEventListener('touchmove', (e) => {
 
 
-    if (isZooming) return;
+    if (isLocked) return;
 
     if (!isDragging || e.touches.length !== 1) return;
 
@@ -45,11 +45,7 @@ slides.forEach((slide, index) => {
 
   slide.addEventListener('touchend', () => {
     isDragging = false;
-
-
-    setTimeout(() => {
-      isZooming = false;
-    }, 150);
+    isLocked = false;
 
     const movedBy = currentTranslate - prevTranslate;
 
