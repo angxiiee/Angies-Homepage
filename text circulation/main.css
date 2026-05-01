@@ -1,8 +1,30 @@
-* {
-    box-sizing:border-box;
+body {
+  margin: 0;
+  background: #000;
 }
 
-body{
-    margin:0;
-    background:black;
+header {
+  text-align: center;
+  padding: 1rem;
+  color: white;
+}
+
+.carousel {
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.carousel img {
+  min-width: 100vw;
+  height: 80vh;
+  object-fit: contain;
+  flex-shrink: 0;
 }
