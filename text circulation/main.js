@@ -7,15 +7,13 @@ let startX = 0;
 let currentTranslate = 0;
 let prevTranslate = 0;
 let isDragging = false;
+
 let isPinching = false;
 
-const slideWidth = window.innerWidth;
-
-/* ------------------ TOUCH EVENTS ------------------ */
 
 slides.forEach((slide, index) => {
-  slide.addEventListener('touchstart', touchStart(index));
-  slide.addEventListener('touchmove', touchMove);
+  slide.addEventListener('touchstart', touchStart(index), { passive: false });
+  slide.addEventListener('touchmove', touchMove, { passive: false });
   slide.addEventListener('touchend', touchEnd);
 });
 
@@ -23,8 +21,8 @@ function touchStart(index) {
   return function (event) {
     currentIndex = index;
 
-    // Detect pinch zoom (2 fingers)
-    if (event.touches.length > 1) {
+    // 👇 detect pinch (2 fingers)
+    if (event.touches.length === 2) {
       isPinching = true;
       isDragging = false;
       return;
@@ -38,7 +36,10 @@ function touchStart(index) {
 }
 
 function touchMove(event) {
-  if (!isDragging || isPinching) return;
+  // ❌ don't swipe during pinch zoom
+  if (isPinching) return;
+
+  if (!isDragging) return;
 
   const currentPosition = event.touches[0].clientX;
   const diff = currentPosition - startX;
@@ -53,12 +54,10 @@ function touchEnd() {
 
   const movedBy = currentTranslate - prevTranslate;
 
-  // Swipe left
   if (movedBy < -80 && currentIndex < slides.length - 1) {
     currentIndex++;
   }
 
-  // Swipe right
   if (movedBy > 80 && currentIndex > 0) {
     currentIndex--;
   }
@@ -66,9 +65,10 @@ function touchEnd() {
   setPositionByIndex();
 }
 
-/* ------------------ SLIDE CONTROL ------------------ */
 
 function setPositionByIndex() {
+  const slideWidth = window.innerWidth;
+
   currentTranslate = currentIndex * -slideWidth;
   prevTranslate = currentTranslate;
 
@@ -77,11 +77,8 @@ function setPositionByIndex() {
   updateCounter();
 }
 
-/* ------------------ COUNTER ------------------ */
-
 function updateCounter() {
   counter.textContent = `${currentIndex + 1} / ${slides.length}`;
 }
 
-/* Init */
 updateCounter();
