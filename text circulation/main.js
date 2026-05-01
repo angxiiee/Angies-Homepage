@@ -8,12 +8,9 @@ let currentTranslate = 0;
 let prevTranslate = 0;
 let isDragging = false;
 
-let isPinching = false;
-
-
 slides.forEach((slide, index) => {
-  slide.addEventListener('touchstart', touchStart(index), { passive: false });
-  slide.addEventListener('touchmove', touchMove, { passive: false });
+  slide.addEventListener('touchstart', touchStart(index));
+  slide.addEventListener('touchmove', touchMove);
   slide.addEventListener('touchend', touchEnd);
 });
 
@@ -21,25 +18,16 @@ function touchStart(index) {
   return function (event) {
     currentIndex = index;
 
-    // 👇 detect pinch (2 fingers)
-    if (event.touches.length === 2) {
-      isPinching = true;
-      isDragging = false;
-      return;
-    }
 
-    isPinching = false;
+    if (event.touches.length !== 1) return;
+
     isDragging = true;
-
     startX = event.touches[0].clientX;
   };
 }
 
 function touchMove(event) {
-  // ❌ don't swipe during pinch zoom
-  if (isPinching) return;
-
-  if (!isDragging) return;
+  if (!isDragging || event.touches.length !== 1) return;
 
   const currentPosition = event.touches[0].clientX;
   const diff = currentPosition - startX;
@@ -50,7 +38,6 @@ function touchMove(event) {
 
 function touchEnd() {
   isDragging = false;
-  isPinching = false;
 
   const movedBy = currentTranslate - prevTranslate;
 
@@ -64,7 +51,6 @@ function touchEnd() {
 
   setPositionByIndex();
 }
-
 
 function setPositionByIndex() {
   const slideWidth = window.innerWidth;
